@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Concoct</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+   </head>
+
+   <body>
+
+        <form action="/drink_added" method="POST">
+            <div class="login">
+                <div class="login-screen">
+                    <div class="app-title">
+                        <h1>Add a new Drink</h1>
+                    </div>
+                    <div class="login-form">
+                        <div class="control-group">
+                            <input type="Drink Name" class="login-field" name="drink-name" placeholder="Drink Name">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="control-group">
+                            <input type="Ingredient 1" class="login-field" name="ingredient1" placeholder="Ingredient 1">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="control-group">
+                            <input type="Ingredient 2" class="login-field" name="ingredient2" placeholder="Ingredient 2">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="control-group">
+                            <input type="Ingredient 3" class="login-field" name="ingredient3" placeholder="Ingredient 3">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="control-group">
+                            <input type="Ingredient 4" class="login-field" name="ingredient4" placeholder="Ingredient 4">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="control-group">
+                            <input type="Ingredient 5" class="login-field" name="ingredient5" placeholder="Ingredient 5">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="control-group">
+                            <input type="Ingredient 6" class="login-field" name="ingredient6" placeholder="Ingredient 6">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="control-group">
+                            <input type="Ingredient 6" class="login-field" name="ingredient6" placeholder="Ingredient 6">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="control-group">
+                            <input type="Taste Type" class="login-field" name="taste" placeholder="Taste type">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="control-group">
+                            <input type="Description" class="login-field" name="description" placeholder="Enter Description here">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+            <input type="submit" value="Add Drink" class="btn btn-primary btn-large btn-block">
+            </div>
+            </div>
+            </div>
+        </form>
+
+    </body>
+
+</html>

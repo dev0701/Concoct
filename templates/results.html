@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Concoct</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+   </head>
+   
+   <body>
+        <header>
+            <div class="container">
+            <h1 class="logo">Concoct</h1>
+            <strong>
+                <nav>
+                    <ul class="menu">
+                        {%if session['logged_in'] != True%}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        {%else%}
+                        <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                        <li><a href="{{ url_for('add_drink') }}">Add a Drink</a></li>
+                        <li><a href="{{ url_for('likes') }}">Your Likes</a></li>
+                        {% endif %}
+                        <li><a href="{{ url_for('home') }}">New Search</a></li>
+                    </ul>
+                </nav>
+            </strong>
+            </div>
+        </header>
+
+        <h1> RESULTS PAGE: </h1>
+        <p> The following results are sorted based on how many of the ingredients you entered match with the recipe ingredients</p>
+            
+        {%if data[0][0] == 1 %}
+        <table>
+            <tr>
+                <th>Cocktail Name</th>
+                <th>Author Name</th>
+                <th>Taste Profile</th>
+                <th>Likes</th>
+                {% for item in data %}
+                    <tr>
+                        <td><form method="POST">
+                            <input type="submit" formaction="/drink" name ="action" value="{{item[1]}}" class="btn btn-primary btn-large btn-block">
+                        </form></td>
+                        <td>{{item[2]}}</td>
+                        <td>{{item[4]}}</td>
+                        <td>{{item[5]}}</td>
+                    </tr>
+                {% endfor %}
+            </tr>
+            </table>
+        {%else%}
+            <table>
+            <tr>
+                <th>Cocktail Name</th>
+                <th>Author Name</th>
+                <th>Taste Profile</th>
+                <th>Likes</th>
+                {% for item in data %}
+                    <tr>
+                        <td><form method="POST">
+                            <input type="submit" formaction="/drink" name ="action" value="{{item[0][1]}}" class="btn btn-primary btn-large btn-block">
+                        </form></td>
+                        <td>{{item[0][2]}}</td>
+                        <td>{{item[0][4]}}</td>
+                        <td>{{item[0][5]}}</td>
+                    </tr>
+                {% endfor %}
+            </tr>
+            </table>
+        {% endif %}
+    </body> 
+</html>

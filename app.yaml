@@ -1,0 +1,8 @@
+#app.yaml
+runtime: python37
+
+env_variables:
+  CLOUD_SQL_USERNAME: user348
+  CLOUD_SQL_PASSWORD: cs348project
+  CLOUD_SQL_DATABASE_NAME: cs348
+  CLOUD_SQL_CONNECTION_NAME: cs348-project-330422:us-central1:cs348

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Manager Information Page</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+   </head>
+   <body>
+      <header>
+         <div class="container">
+            <h1 class="logo">Company Management Tool - Search</h1>
+            <strong>
+               <nav>
+                  <ul class="menu">
+                     {%if session['logged_in'] != True%}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                     {%else%}
+                     <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                     <li><a href="{{ url_for('login') }}">Home</a></li>
+                     <li><a href="{{ url_for('search') }}">Search</a></li>
+                     <li><a href="{{ url_for('edit')}}">Edit Employee</a></li>
+                     {% endif %}
+                  </ul>
+               </nav>
+            </strong>
+         </div>
+      </header>
+      <h1> Search: </h1>
+         <form method="POST">
+            <input type="text" autofocus="autofocus" name="search_string">
+            <input type="submit" formaction="/search" name ="action" value="Search">
+            <input type="submit" formaction="/search" name ="action" value="Show All">
+            <input type="submit" formaction="/search" name ="action" value="Sort by Salary">
+         </form>
+         <h4>Company Database</h4>
+         <body>
+            <h1> Search Results </h1>
+            <table>
+               <tr>
+                  <th>Employee ID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Position</th>
+                  <th>Salary</th>
+                  {% for item in data %}
+                     <tr>
+                        <td>{{item}}</td>
+                     </tr>
+                  {% endfor %}
+               </tr>
+            </table>
+         </body>
+      <form action="/logout">
+        <input type="submit" value="Log Out" class="btn btn-primary btn-large btn-block">
+     </form>
+   </body>
+</html>

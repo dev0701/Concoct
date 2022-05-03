@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Concoct</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+   </head>
+   <body>
+      <header>
+         <div class="container">
+            <h1 class="logo">Concoct</h1>
+            <strong>
+               <nav>
+                  <ul class="menu">
+                     {%if session['logged_in'] != True%}
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                     {%else%}
+                     <li><a href="{{ url_for('logout') }}">Log out</a></li>
+                     <li><a href="{{ url_for('add_drink') }}">Add a Drink</a></li>
+                     <li><a href="{{ url_for('likes') }}">Your Likes</a></li>
+                     {% endif %}
+                  </ul>
+               </nav>
+            </strong>
+         </div>
+      </header>
+
+      <h1> Enter your ingredients </h1>
+      <form method="POST">
+         <input type="text" autofocus="autofocus" name="ingredient1" placeholder="First Ingredient">
+         <input type="text" autofocus="autofocus" name="ingredient2" placeholder="Second Ingredient (optional) ">
+         <input type="text" autofocus="autofocus" name="ingredient3" placeholder="Third Ingredient (optional)">
+         <input type="text" autofocus="autofocus" name="ingredient4" placeholder="Fourth Ingredient (optional)">
+         <input type="submit" formaction="/results" name ="action" value="Search" class="btn btn-primary btn-large btn-block">
+         <input type="submit" formaction="/results" name ="action" value="Show All Beverages" class="btn btn-primary btn-large btn-block">
+      </form>
+      
+   </body>
+</html>
